@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Eurodollar</string>
+    <string name="action_settings">Settings</string>
+    <string name="euro">"in €"</string>
+    <string name="dollar">"in $"</string>
+    <color name="myColour">#3399CC</color>
+</resources>
