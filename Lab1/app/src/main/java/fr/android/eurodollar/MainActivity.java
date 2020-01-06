@@ -11,7 +11,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -19,12 +18,6 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     private EditText editText1;
-    private Button EuroButon;
-
-    @Override
-    public <T extends View> T findViewById(int id) {
-        return super.findViewById(R.id.editText1);
-    }
 
     public void myClickHandler(View view) {
         switch (view.getId()) {
@@ -38,16 +31,16 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 float inputValue = Float.parseFloat(editText1.getText().toString());
-                if (EuroButton.isChecked()) {
+                if (euroButton.isChecked()) {
                     editText1.setText(String
                             .valueOf(convertDollarToEuro(inputValue)));
-                    euroButton.setChecked(false);
-                    dollarButton.setChecked(true);
+                    euroButton.setChecked(true);
+                    dollarButton.setChecked(false);
                 } else {
                     editText1.setText(String
                             .valueOf(convertEuroToDollar(inputValue)));
-                    dollarButton.setChecked(false);
-                    euroButton.setChecked(true);
+                    dollarButton.setChecked(true);
+                    euroButton.setChecked(false);
                 }
                 break;
         }
@@ -55,14 +48,12 @@ public class MainActivity extends AppCompatActivity {
 
     // Convertir Dollar à Euro
     private float convertDollarToEuro(float dollar) {
-        float tot = dollar/(0.89f);
-        return tot; // formule à utiliser
+        return dollar/(0.89f); // formule à utiliser
     }
 
     // Convertir Euro à Dollar
     private float convertEuroToDollar(float euro) {
-        float tot = euro*(1.12f);
-        return tot; // formule à utiliser
+        return euro*(1.12f); // formule à utiliser
     }
 
     @Override
@@ -71,15 +62,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        editText1= (EditText)findViewById(R.id.editText1);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
     @Override

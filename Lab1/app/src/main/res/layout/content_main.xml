@@ -14,14 +14,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:autofillHints=""
         android:ems="10"
-        android:inputType="numberSigned|numberDecimal"
-        android:text="@string/valueToConvert" />
+        android:hint="@string/valueToConvert"
+        android:inputType="numberSigned|numberDecimal" />
 
     <RadioGroup
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1" >
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
 
         <RadioButton
             android:id="@+id/EuroButton"
@@ -29,14 +30,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="true"
-            tools:text="@string/euro" />
+            android:text="@string/euro" />
 
         <RadioButton
             android:id="@+id/DollarButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:text="@string/dollar" />
+            android:text="@string/dollar" />
 
         <Button
             android:id="@+id/button1"
@@ -45,6 +46,7 @@
             android:layout_weight="1"
             android:onClick="myClickHandler"
             android:text="@string/convert" />
+
     </RadioGroup>
 
 </LinearLayout>
