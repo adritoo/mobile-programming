@@ -3,5 +3,7 @@
     <string name="action_settings">Settings</string>
     <string name="euro">"in €"</string>
     <string name="dollar">"in $"</string>
+    <string name="valueToConvert">"Value to convert"</string>
+    <string name="convert">"Convert"</string>
     <color name="myColour">#3399CC</color>
 </resources>
