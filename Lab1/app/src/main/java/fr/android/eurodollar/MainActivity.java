@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     // Convertir Dollar à Euro
     private float convertDollarToEuro(float dollar) {
-        return dollar/(0.89f); // formule à utiliser
+        return dollar*(0.89f); // formule à utiliser
     }
 
     // Convertir Euro à Dollar
