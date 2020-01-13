@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MyCalculator</string>
+    <string name="toCalculate">Enter values to calculate</string>
+    <string name="viewResult">Result</string>
+    <string name="numberZero">0</string>
+    <string name="numberOne">1</string>
+    <string name="numberTwo">2</string>
+    <string name="numberThree">3</string>
+    <string name="numberFour">4</string>
+    <string name="numberFive">5</string>
+    <string name="numberSix">6</string>
+    <string name="numberSeven">7</string>
+    <string name="numberEight">8</string>
+    <string name="numberNine">9</string>
+    <string name="equals">=</string>
+    <string name="multiply">*</string>
+    <string name="minus">-</string>
+    <string name="add">+</string>
+    <string name="divide">/</string>
+
+</resources>

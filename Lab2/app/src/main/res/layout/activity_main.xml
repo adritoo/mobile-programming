@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/viewOperation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/toCalculate" />
+
+        <TextView
+            android:id="@+id/viewResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/viewResult" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/numberSeven"
+                    android:tag="7"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="@string/numberSeven" />
+
+                <Button
+                    android:id="@+id/numberEight"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:tag="8"
+                    android:text="@string/numberEight" />
+
+                <Button
+                    android:id="@+id/numberNine"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:tag="9"
+                    android:text="@string/numberNine" />
+
+                <Button
+                    android:id="@+id/add"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:tag="+"
+                    android:text="@string/add" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/numberFour"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="4"
+                    android:text="@string/numberFour" />
+
+                <Button
+                    android:id="@+id/numberFive"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="5"
+                    android:text="@string/numberFive" />
+
+                <Button
+                    android:id="@+id/numberSix"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="6"
+                    android:text="@string/numberSix" />
+
+                <Button
+                    android:id="@+id/minus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="-"
+                    android:text="@string/minus" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/numberOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:tag="1"
+                    android:text="@string/numberOne" />
+
+                <Button
+                    android:id="@+id/numberTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="2"
+                    android:text="@string/numberTwo" />
+
+                <Button
+                    android:id="@+id/numberThree"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="3"
+                    android:text="@string/numberThree" />
+
+                <Button
+                    android:id="@+id/multiply"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:tag="*"
+                    android:text="@string/multiply" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/numberZero"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:tag="0"
+                    android:text="@string/numberZero" />
+
+                <Button
+                    android:id="@+id/divide"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:tag="/"
+                    android:text="@string/divide" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/equals"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/equals" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
