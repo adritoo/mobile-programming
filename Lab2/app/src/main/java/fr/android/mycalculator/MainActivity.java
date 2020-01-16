@@ -64,14 +64,14 @@ public class MainActivity extends AppCompatActivity {
         divide.setOnClickListener(onClickListener);
         multiply.setOnClickListener(onClickListener);
 
-
+       
     }
 
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewResult = (TextView) findViewById(R.id.viewResult);
-                viewResult.setText(String.valueOf(Integer.parseInt(v.getTag().toString())));
+                viewOperation = (TextView) findViewById(R.id.viewOperation);
+                viewOperation.setText(String.valueOf(Integer.parseInt(v.getTag().toString())));
 
             //    viewResult.refreshDrawableState();
             }
