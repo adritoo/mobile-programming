@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 viewOperation = (TextView) findViewById(R.id.viewOperation);
-                //viewOperation.setText(String.valueOf(Integer.parseInt(v.getTag().toString())));
-                viewOperation.setText(viewOperation.getText()+String.valueOf(Integer.parseInt(v.getTag().toString())));
+                viewOperation.setText(viewOperation.getText()+String.valueOf(v.getTag()));
+
             }
         };
 }
