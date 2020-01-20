@@ -36,10 +36,9 @@ public class MainActivity extends AppCompatActivity {
         double result = 0;
         int a,b;
         char c = operation.charAt(1);
-        a = operation.charAt(0);
+        a = Character.getNumericValue(operation.charAt(0));
         System.out.println(+a);
-        b = operation.charAt(2);
-        System.out.println(+b);
+        b = Character.getNumericValue(operation.charAt(2));
         switch (c){
             case'+':
                 result=a+b;
@@ -98,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(operation.length() <= 3) {
+                if((operation.length() < 3)||(String.valueOf(v.getTag()).equals("="))) {
                     if (!(String.valueOf(v.getTag()).equals("="))){
                         viewOperation = (TextView) findViewById(R.id.viewOperation);
-                        //viewOperation.setText(viewOperation.getText() + String.valueOf(v.getTag()));
                         operation = operation.concat(String.valueOf(v.getTag()));
                         viewOperation.setText(operation);
                     } else {
+                        System.out.println("t");
                         viewResult = (TextView) findViewById(R.id.viewResult);
                         viewResult.setText(calculate(operation));
                     }
