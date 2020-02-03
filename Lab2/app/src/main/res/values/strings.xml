@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Calculator</string>
+    <string name="app_name">MyCalculator</string>
     <string name="toCalculate">Enter values to calculate</string>
     <string name="viewResult">Result</string>
     <string name="numberZero">0</string>
