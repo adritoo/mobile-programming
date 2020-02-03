@@ -1,0 +1,21 @@
+Package name = default application ID (googleplay store + on mobile phone)
+
+Target Android: define the minimal API 
+
+Manifest file:
+
+Describes essential information about the app:
+
+Android build tools
+Android operating system 
+Google Play Store
+
+Declare: 
+		- Package name
+		- Components of the app (activities, services, broadcast receivers)
+		- Content provideers
+		- Permission the app needs
+		- Hardware + Software features the app requires
+		
+Activity name give the class name of GUI class.
+		
