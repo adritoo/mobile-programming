@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         numberSeven = (Button)findViewById(R.id.numberSeven);
         numberEight = (Button)findViewById(R.id.numberEight);
         numberNine = (Button)findViewById(R.id.numberNine);
-        equals = (Button)findViewById(R.id.equals);
+        equals = (Button)findViewById(R.id².equals);
         minus = (Button)findViewById(R.id.minus);
         add = (Button)findViewById(R.id.add);
         divide = (Button)findViewById(R.id.divide);
