@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name='ProgressTestActivity'
+rootProject.name='MyCalculator'
