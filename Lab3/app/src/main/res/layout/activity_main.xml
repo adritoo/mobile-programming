@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+    <LinearLayout tools:context=".MainActivity" android:orientation="vertical" android:layout_height="match_parent" android:layout_width="match_parent" xmlns:tools="http://schemas.android.com/tools" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout android:orientation="horizontal" android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="25">
+
+    <TextView android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="75" android:textSize="25sp" android:gravity="center" android:id="@+id/viewOperation"/>
+
+    <TextView android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="25" android:textSize="25sp" android:gravity="center" android:id="@+id/viewResult"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:orientation="horizontal" android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="75" android:id="@+id/linear">
+
+
+    <LinearLayout android:orientation="vertical" android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="80">
+
+
+    <LinearLayout android:orientation="horizontal" android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="25">
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberOne" android:onClick="myClickHandler" android:text="1"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberTwo" android:onClick="myClickHandler" android:text="2"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberTree" android:onClick="myClickHandler" android:text="3"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/multiply" android:onClick="myClickHandler" android:text="*"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:orientation="horizontal" android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="25">
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberFour" android:onClick="myClickHandler" android:text="4"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberFive" android:onClick="myClickHandler" android:text="5"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberSix" android:onClick="myClickHandler" android:text="6"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/minus" android:onClick="myClickHandler" android:text="-"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:orientation="horizontal" android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="25">
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberSeven" android:onClick="myClickHandler" android:text="7"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberEight" android:onClick="myClickHandler" android:text="8"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberNine" android:onClick="myClickHandler" android:text="9"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/add" android:onClick="myClickHandler" android:text="+"/>
+
+</LinearLayout>
+
+
+    <LinearLayout android:orientation="horizontal" android:layout_height="0dp" android:layout_width="match_parent" android:layout_weight="25">
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/numberZero" android:onClick="myClickHandler" android:text="0"/>
+
+    <Button android:layout_height="match_parent" android:layout_width="0dp" android:layout_weight="1" android:textSize="25sp" android:id="@+id/divide" android:onClick="myClickHandler" android:text="/"/>
+
+</LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>
+
+</LinearLayout>
