@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity {
         multiply = (Button) findViewById(R.id.multiply);
         divide = (Button) findViewById(R.id.divide);
 
-
         viewOperation = (TextView) findViewById(R.id.viewOperation);
 
         viewResult = (TextView) findViewById(R.id.viewResult);
@@ -66,8 +65,8 @@ public class MainActivity extends AppCompatActivity {
         );
         equal.setText("=");
 
-        //equal.setOnClickListener(myEqualHandler());  //Handler
-        equal.setOnClickListener(myAsyncEqualHandler());  // Async
+        equal.setOnClickListener(myEqualHandler());  //Handler
+        //equal.setOnClickListener(myAsyncEqualHandler());  // Async
 
 
         linear.addView(equal);
