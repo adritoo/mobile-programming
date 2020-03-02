@@ -8,10 +8,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.LinearLayout;
 
-import android.content.Intent;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 
 
@@ -76,29 +72,6 @@ public class MainActivity extends AppCompatActivity {
         linear.addView(equal);
 
         handler = new Handler();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu,menu);
-        return true ;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.item1){
-            TextView res=(TextView)findViewById(R.id.viewResult);
-            String str = res.getText().toString();
-            Intent intent;
-            intent = new Intent(MainActivity.this, Main2Activity.class);
-            intent.putExtra("textview",str);
-            startActivity(intent);
-
-            return false;
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     //HANDLER
