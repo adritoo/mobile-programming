@@ -1,29 +1,31 @@
 package fr.android.calculatrice;
-
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import static fr.android.calculatrice.R.menu.menu;
-
-/* ---- On procédé de la manière suivante : Créer une seule méthode pour gérer les bouton en utilissant le statment this en implementant View.OnClickListener
- l'utilisateur taper une opération , le programme qu'on a proposé prend la chaine de caractère tapée et distingue entre l'opérande et l'opérateur
- en utilisant un index puis transforme les deux en double et les stockes dans des variable pour pouvoir les utiliser lors des méthodes pour effectuer un calcul */
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener { // implémentation( View.onCLicklistner pour utiliser v View avec get Id
-     private Boolean cliquepositif=false;// indique si l'utilisateur a cliqué sur l'un des bouton(+-*/)
-     private double premiernb=0;        //le premier chiffre tapé
-     private  int deuxiemenb=0;        // le deuxième chiffre tapé indéxé ( après avoir tapé l'opérateur)
-     private  char op ;                // utilisé dans la condition if(){} pour savoir sur quel opérateur l'utilisateur a cliqué
+import android.widget.LinearLayout;
 
 
+
+
+
+public class MainActivity extends AppCompatActivity {
+
+    Button numberZero, numberOne, numberTwo, numberTree, numberFour, numberFive, numberSix,
+            numberSeven, numberEight, numberNine, add, minus, divide,
+            multiply, equal;
+    TextView viewOperation, viewResult;
+
+    float val1, val2;
+
+    boolean badd, bminus, bmultiply, bdiv;
+
+    Handler handler;
+
+    LinearLayout linear;
 
 
     @Override
@@ -31,178 +33,213 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView operation = findViewById(R.id.oper);
-        TextView res = findViewById(R.id.Result);
-        Button buttonplus = findViewById(R.id.addition);
-        Button buttonmoins = findViewById(R.id.soustraction);
-        Button buttonfois = findViewById(R.id.multiplication);
-        Button buttondiv = findViewById(R.id.division);
-        Button buttonres = findViewById(R.id.egale);
-        Button button1 = findViewById(R.id.nbUn);
-        Button button2 = findViewById(R.id.nbDeux);
-        Button button3 = findViewById(R.id.nbTrois);
-        Button button4 = findViewById(R.id.nbQuatre);
-        Button button5 = findViewById(R.id.nbCinq);
-        Button button6 = findViewById(R.id.nbSix);
-        Button button7 = findViewById(R.id.nbSept);
-        Button button8 = findViewById(R.id.nbHuit);
-        Button button9 = findViewById(R.id.nbNeuf);
-        Button button0 = findViewById(R.id.nbZero);
+        numberZero = (Button) findViewById(R.id.numberZero);
+        numberOne = (Button) findViewById(R.id.numberOne);
+        numberTwo = (Button) findViewById(R.id.numberTwo);
+        numberTree = (Button) findViewById(R.id.numberTree);
+        numberFour = (Button) findViewById(R.id.numberFour);
+        numberFive = (Button) findViewById(R.id.numberFive);
+        numberSix = (Button) findViewById(R.id.numberSix);
+        numberSeven = (Button) findViewById(R.id.numberSeven);
+        numberEight = (Button) findViewById(R.id.numberEight);
+        numberNine = (Button) findViewById(R.id.numberNine);
+
+        add = (Button) findViewById(R.id.add);
+        minus = (Button) findViewById(R.id.minus);
+        multiply = (Button) findViewById(R.id.multiply);
+        divide = (Button) findViewById(R.id.divide);
+
+        viewOperation = (TextView) findViewById(R.id.viewOperation);
+
+        viewResult = (TextView) findViewById(R.id.viewResult);
+
+        linear = findViewById(R.id.linear);
+
+        equal = new Button(this);
 
 
+        equal.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                1.0f)
+        );
+        equal.setText("=");
+
+        equal.setOnClickListener(myEqualHandler());  //Handler
+        //equal.setOnClickListener(myAsyncEqualHandler());  // Async
 
 
-                                                     // signifie on place notre activité ici elle meme , mais pour cela
-        buttonfois.setOnClickListener(this);        // il faut implementer this onclicklistener
-        buttondiv.setOnClickListener(this);         //interface puis onClick pour l'utiliser une seule fois
-        buttonmoins.setOnClickListener(this);
-        buttonplus.setOnClickListener(this);
-        buttonres.setOnClickListener(this);
-        button1.setOnClickListener(this);
-        button2.setOnClickListener(this);
-        button3.setOnClickListener(this);
-        button4.setOnClickListener(this);
-        button5.setOnClickListener(this);
-        button6.setOnClickListener(this);
-        button7.setOnClickListener(this);
-        button8.setOnClickListener(this);
-        button9.setOnClickListener(this);
-        button0.setOnClickListener(this);
-        operation.setOnClickListener(this);
-        res.setOnClickListener(this);
+        linear.addView(equal);
 
-
-
+        handler = new Handler();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu,menu);
-        return true ;
-    }
+    //HANDLER
+    View.OnClickListener myEqualHandler() {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.item1){
-            TextView res=(TextView)findViewById(R.id.Result) ;///////
-            String str = res.getText().toString();
-            Intent intent = new Intent(MainActivity.this,Main2Activity.class);
-            intent.putExtra("textview",str);
-            startActivity(intent);
-
-            return false;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onClick(View v)
-    {
-        final TextView operation =(TextView)findViewById(R.id.oper); // final est utilisé pour pourvoir l'utiliser en dehors du scope pour le bouton effacer
-        String contenu = operation.getText().toString();  // la chaine de caractère que l'utilisateur tape ( 1+1 par exemple )
-        TextView res=(TextView)findViewById(R.id.Result) ;
-
-        switch (v.getId()) {
-// append() permet de renvoyer plusieurs caractères à la fois , au contraire de setText() qui renvoie un caractère unique
-                case R.id.nbZero:
-                    operation.append("0");
-                    break;
-                case R.id.nbUn:
-                    operation.append("1");
-                    break;
-                case R.id.nbDeux:
-                    operation.append("2");
-                    break;
-                case R.id.nbTrois:
-                    operation.append("3");
-                    break;
-                case R.id.nbQuatre:
-                    operation.append("4");
-                    break;
-                case R.id.nbCinq:
-                    operation.append("5");
-                    break;
-                case R.id.nbSix:
-                    operation.append("6");
-                    break;
-                case R.id.nbSept:
-                    operation.append("7");
-                    break;
-                case R.id.nbHuit:
-                    operation.append("8");
-                    break;
-                case R.id.nbNeuf:
-                    operation.append("9");
-                    break;
-                case R.id.addition:
-
-                    premiernb=Double.parseDouble(contenu);    // Convertir String à un Double
-                    deuxiemenb=contenu.length()+1;            // pointe sur lélement qui suit l'opérateur
-                    operation.append("+");
-                    cliquepositif=true;
-                    op='+';
-                    break;
-                case R.id.soustraction:
-                    premiernb=Double.parseDouble(contenu);
-                    deuxiemenb=contenu.length()+1;
-                    operation.append("-");
-                    cliquepositif=true;
-                    op='-';
-                    break;
-                case R.id.multiplication:
-                    premiernb=Double.parseDouble(contenu);
-                    deuxiemenb=contenu.length()+1;
-                    operation.append("*");
-                    cliquepositif=true;
-                    op='*';
-                    break;
-                case R.id.division:
-                    premiernb=Double.parseDouble(contenu);
-                    deuxiemenb=contenu.length()+1;
-                    operation.append("/");
-                    cliquepositif=true;
-                    double resultat=0;
-                    op='/';
-                    break;
-                case R.id.egale:
-                    if(cliquepositif){  // si le bouton = true
-                        String deuxiemenbstring = contenu.substring(deuxiemenb,contenu.length());
-                        double deuxiemenombre = Double.parseDouble(deuxiemenbstring); // On stransforme la chaine de caractère indéxée à partir de l'opérateur en double
-                        if(op=='+'){
-                           deuxiemenombre+= premiernb ;
-                           res.setText(String.valueOf(deuxiemenombre));
-                        }else if(op=='-'){
-                            resultat= premiernb-deuxiemenombre ;
-                            res.setText(String.valueOf(resultat));
-                        }else if (op=='*'){
-                            deuxiemenombre= premiernb *deuxiemenombre;
-                            res.setText(String.valueOf(deuxiemenombre));
-                        }else if (op=='/'){
-                            deuxiemenombre= premiernb/deuxiemenombre ;
-                            res.setText(String.valueOf(deuxiemenombre));
-                        }
-                    }
-                    break;
-
-
-            }
-
-        Button Buttonc = findViewById(R.id.effacer);
-        Buttonc.setOnClickListener(new View.OnClickListener() {
-            @Override
+        return new View.OnClickListener() {
             public void onClick(View v) {
-                operation.setText(""); // chaine de caractère vide quand on efface
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        String calcul = "";
 
+                        val2 = Float.parseFloat(viewOperation.getText() + "");
+
+                        if ( badd) {
+                            calcul=val1+val2 + "";
+                            badd= false;
+                        }else if (bminus) {
+                            calcul=val1-val2 + "";
+                            bminus= false;
+                        }else if(bmultiply) {
+                            calcul=val1*val2 + "";
+                            bmultiply= false;
+                        }else if(bdiv) {
+                            calcul=val1/val2 + "";
+                            bdiv= false;
+                        }
+
+                        final String finalCalcul = calcul;
+                        handler.post(
+                                new Runnable() {
+                                    @Override
+                                    public void run() {
+
+                                        viewResult.setText(finalCalcul);
+                                        viewOperation.setText(null);
+
+                                    }
+                                }
+                        );
+                    }
+                };
+                new Thread(runnable).start();
             }
-        });
+        };
     }
 
+    //ASYNC
+    View.OnClickListener myAsyncEqualHandler()  {
+        return new View.OnClickListener() {
+            public void onClick(View v) {
+                new AsyncEqual().execute();
+            }
+        };
+    }
+
+    private class AsyncEqual extends AsyncTask<Void, Integer, String> {
+        protected String doInBackground(Void... vals) {
+            String calcul = "";
+
+            val2 = Float.parseFloat(viewOperation.getText() + "");
+
+            if ( badd) {
+                calcul = val1+val2 + "";
+                badd= false;
+            }else if (bminus) {
+                calcul = val1-val2 + "";
+                bminus= false;
+            }else if(bmultiply) {
+                calcul = val1*val2 + "";
+                bmultiply= false;
+            }else if(bdiv) {
+                calcul = val1/val2 + "";
+                bdiv= false;
+            }
+
+            return calcul;
+        }
+        protected void onProgressUpdate(Integer... progress) {
+            //...
+        }
+        protected void onPostExecute(String result) {
+
+            //Affiche le resultat
+            viewResult.setText(result);
+            viewOperation.setText(null);
+        }
+    }
+
+    public void myClickHandler(View view) {
+        switch (view.getId()) {
+            case R.id.numberOne:
+                viewOperation.setText(viewOperation.getText() + "1");
+                break;
+            case R.id.numberTwo:
+                viewOperation.setText(viewOperation.getText() + "2");
+                break;
+            case R.id.numberTree:
+                viewOperation.setText(viewOperation.getText() + "3");
+                break;
+            case R.id.numberFour:
+                viewOperation.setText(viewOperation.getText() + "4");
+                break;
+            case R.id.numberFive:
+                viewOperation.setText(viewOperation.getText() + "5");
+                break;
+            case R.id.numberSix:
+                viewOperation.setText(viewOperation.getText() + "6");
+                break;
+            case R.id.numberSeven:
+                viewOperation.setText(viewOperation.getText() + "7");
+                break;
+            case R.id.numberEight:
+                viewOperation.setText(viewOperation.getText() + "8");
+                break;
+
+            case R.id.numberNine:
+                viewOperation.setText(viewOperation.getText() + "9");
+                break;
+            case R.id.numberZero:
+                viewOperation.setText(viewOperation.getText() + "0");
+                break;
 
 
-//--------------méthodes---------------------------------
+            case R.id.add:
+                if(viewOperation.getText()==null){
+                    viewOperation.setText("");
+                }else {
+                    val1 = Float.parseFloat(viewOperation.getText() + "");
+                    badd = true;
+                    viewOperation.setText("");
+                }
 
+                break;
 
+            case R.id.minus:
+                if(viewOperation.getText()==null){
+                    viewOperation.setText("");
+                }else {
+                    val1 = Float.parseFloat(viewOperation.getText() + "");
+                    bminus = true;
+                    viewOperation.setText("");
+                }
+
+                break;
+
+            case R.id.multiply:
+                if(viewOperation.getText()==null){
+                    viewOperation.setText("");
+                }else {
+                    val1 = Float.parseFloat(viewOperation.getText() + "");
+                    bmultiply = true;
+                    viewOperation.setText("");
+                }
+
+                break;
+
+            case R.id.divide:
+                if(viewOperation.getText()==null){
+                    viewOperation.setText("");
+                }else {
+                    val1 = Float.parseFloat(viewOperation.getText() + "");
+                    bdiv = true;
+                    viewOperation.setText("");
+                }
+
+                break;
+
+        }
+    }
 }
-

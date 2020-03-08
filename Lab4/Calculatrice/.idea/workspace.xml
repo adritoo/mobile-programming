@@ -6,9 +6,7 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e136428-81db-43f4-8fc3-518d71c75970" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Lab3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab3/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6e136428-81db-43f4-8fc3-518d71c75970" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +40,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="resourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -63,6 +62,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-01-18T13:03:56.765Z" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
@@ -160,7 +160,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
